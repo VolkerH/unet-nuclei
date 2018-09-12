@@ -33,4 +33,4 @@ TBD
 Example
 -------
 
-TBD
+See the example Jupyter notebook under `/notebook`
