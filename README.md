@@ -17,12 +17,12 @@ Installation / Usage
 
 To install use pip:
 
-    $ pip install unet_nuclei
+    $ pip install git+https://gitlab.erc.monash.edu.au/mmi/unet-nuclei.git
 
 
 Or clone the repo:
 
-    $ git clone https://github.com/VolkerH/unet_nuclei.git
+    $ git clone https://gitlab.erc.monash.edu.au/mmi/unet-nuclei.git
     $ python setup.py install
     
 Contributing
