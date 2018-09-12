@@ -24,7 +24,7 @@ setup(
     long_description=long_description,
     url='https://github.com/VolkerH/unet_nuclei',
     download_url='https://github.com/VolkerH/unet_nuclei/tarball/' + __version__,
-    license='BSD',
+    license='unknown/to be determined',
     classifiers=[
       'Development Status :: 3 - Alpha',
       'Intended Audience :: Developers',
