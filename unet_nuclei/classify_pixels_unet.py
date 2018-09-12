@@ -23,7 +23,10 @@ import os.path
 import numpy as np
 from skimage import transform
 
+import os as _os
 
+_dir = os.path.abspath(os.path.dirname(__file__))
+_model_path = os.path.join(_dir, "model.h5")
 
 # By default, use cntk on windows. (However, tensorflow works on windows as well)
 if sys.platform.startswith('win'):
@@ -65,7 +68,7 @@ def test_run(img):
     result = unet_classify(model, img)
     return(result)
 
-def unet_initialize(input_shape, weights_filename = "model.h5", automated_shape_adjustment=False):
+def unet_initialize(input_shape, weights_filename = _model_path, automated_shape_adjustment=False):
     unet_shape = unet_shape_resize(input_shape, 3)
     if input_shape != unet_shape and not automated_shape_adjustment:
         raise ValueError(
