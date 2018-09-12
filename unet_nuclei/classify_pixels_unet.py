@@ -65,7 +65,7 @@ def test_run(img):
     result = unet_classify(model, img)
     return(result)
 
-def unet_initialize(input_shape, weights_filename = "./model/model.h5", automated_shape_adjustment=False):
+def unet_initialize(input_shape, weights_filename = "model.h5", automated_shape_adjustment=False):
     unet_shape = unet_shape_resize(input_shape, 3)
     if input_shape != unet_shape and not automated_shape_adjustment:
         raise ValueError(
