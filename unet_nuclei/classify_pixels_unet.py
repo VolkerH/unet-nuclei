@@ -123,7 +123,7 @@ def unet_classify(model, input_image, resize_to_model=True):
     needs_resize = False if (dim1, dim2) == (mdim1, mdim2) else True
     if needs_resize:
         if resize_to_model:
-            input_image = transform.resize(input_image, (mdim1, mdim2), anti_aliasing=True)
+            input_image = transform.resize(input_image, (mdim1, mdim2)) #, anti_aliasing=True)
         else:
             raise ValueError("image size does not match model size, set resize_to_model=True")
     images = input_image.reshape((-1, mdim1, mdim2, 1))
