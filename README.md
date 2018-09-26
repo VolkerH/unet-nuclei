@@ -1,8 +1,5 @@
 unet_nuclei
-===============================
-
-Version number: 0.0.1
-
+===========
 
 
 
@@ -11,6 +8,10 @@ Overview
 
 This package provides stand-alone version of unet segmentation of fluorescent nuclei based on the code from the Cellprofiler plugin 
 https://github.com/CellProfiler/CellProfiler-plugins/blob/master/classifypixelsunet.py
+
+You can use the pre-trained Unet to segment fluorescece microsopy images of cell nuclei. The output will be a three-channel classification result that provides the probabilities for a pixel to
+be part of a background, nucleus and boundary pixel. The seperate boundary class is useful for splitting clumped nuclei.
+
 
 I mainly created the package for my personal use, so I can use the very useful nuclei segmentation in my own python scripts without CellProfiler as a dependency. I'm only releasing this in case other people find it useful. 
 
@@ -27,10 +28,6 @@ Or clone the repo:
     $ git clone https://gitlab.erc.monash.edu.au/mmi/unet-nuclei.git
     $ python setup.py install
     
-Contributing
-------------
-
-Please create a Github issue for any bug reports and improvements.
 
 Keras Backend and GPU support
 -----------------------------
@@ -52,7 +49,10 @@ In the simplest case:
 
 ```
 from unet_nuclei import *
+import skimage.io
 
+# Red
+img
 
 
 ```
@@ -68,3 +68,9 @@ Credits are due to the Cellprofiler team for training the unet and providing an 
 Contains code from various authors, see LICENSE.md for license and authors.
 
 Package maintainer: Volker Hilsenstein
+
+
+Contributing
+------------
+
+Please create a Github issue for any bug reports and improvements.
