@@ -11,10 +11,10 @@ https://github.com/CellProfiler/CellProfiler-plugins/issues/65
 https://github.com/jr0th/segmentation
 https://github.com/carpenterlab/unet4nuclei
 
+License: BSD-3, see LICENSE.md for details
+
 """
 
-import logging
-import numpy
 import pkg_resources
 import sys
 import time
@@ -27,15 +27,6 @@ import os as _os
 
 _dir = os.path.abspath(os.path.dirname(__file__))
 _model_path = os.path.join(_dir, "model.h5")
-
-# By default, use cntk on windows. (However, tensorflow works on windows as well)
-if sys.platform.startswith('win'):
-    os.environ["KERAS_BACKEND"] = "cntk"
-else:
-    os.environ["KERAS_BACKEND"] = "tensorflow"
-
-import keras 
-
 
 __doc__ = """\
 ClassifyPixels-Unet calculates pixel wise classification using an UNet 
@@ -50,10 +41,6 @@ images:
 In the simplest use case, the classifications are converted to gray value images 
 using the module ColorToGray. The module IdentifyPrimaryObjects can be 
 used to identify example images in the nuclei channel (green channel). 
-
-The default UNet model is downloaded and stored on the local machine. To 
-replace the model the function  download_file_from_google_drive needs to 
-be updated.  
 
 
 Author: Tim Becker, Juan Caicedo, Claire McQuinn 
@@ -115,7 +102,7 @@ def unet_image_resize(image, n_pooling_layers):
     # Note here that the type and range of the image will either not change
     # or become float64, 0-1 (which makes no difference w/ subsequent min/max scaling)
     return image if shape == image.shape else transform.resize(
-        image, shape, mode='reflect', anti_aliasing=True)
+        image, shape)
 
 def unet_classify(model, input_image, resize_to_model=True):
     dim1, dim2 = input_image.shape
@@ -129,9 +116,9 @@ def unet_classify(model, input_image, resize_to_model=True):
     images = input_image.reshape((-1, mdim1, mdim2, 1))
     
     # scale min, max to [0.0,1.0]
-    images = images.astype(numpy.float32)
-    images = images - numpy.min(images)
-    images = images.astype(numpy.float32) / numpy.max(images)
+    images = images.astype(np.float32)
+    images = images - np.min(images)
+    images = images.astype(np.float32) / np.max(images)
 
     pixel_classification = model.predict(images, batch_size=1)
 
@@ -219,11 +206,3 @@ def get_model_3_class(dim1, dim2, activation="softmax"):
     model = keras.models.Model(x, y)
 
     return model
-
-
-#imfile = './testimages/EMBO_course_2012_Plate_son_batch05_01--s449--PLK1--W0081--P001--T00000--Z000--C01.ome.tif'
-#img = skimage.io.imread(imfile)
-#img = img[:510,:512]
-#res = test_run(unet_image_resize(img, 3))
-# if resizing took place, we need to resize back
-#print(res.shape)
