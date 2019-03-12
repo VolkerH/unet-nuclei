@@ -27,6 +27,7 @@ import os as _os
 
 _dir = os.path.abspath(os.path.dirname(__file__))
 _model_path = os.path.join(_dir, "model.h5")
+import keras
 
 __doc__ = """\
 ClassifyPixels-Unet calculates pixel wise classification using an UNet 
