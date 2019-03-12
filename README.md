@@ -55,7 +55,7 @@ Other options to set the backend are described here: https://keras.io/backend/.
 
 ## Usage
 
-See the example Jupyter notebook under [`./notebook/test_unet_nuclei.ipynb`](`./notebook/test_unet_nuclei.ipynb`).
+See the example Jupyter notebook under [`./notebook/test_unet_nuclei.ipynb`](./notebook/test_unet_nuclei.ipynb).
 
 ## Acknowledgements, license and code provenance
 
