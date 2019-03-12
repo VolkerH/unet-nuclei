@@ -61,13 +61,13 @@ See the example Jupyter notebook under [`./notebook/test_unet_nuclei.ipynb`](`./
 
 The code is under a BSD-3 License, for the core part see [https://github.com/CellProfiler/CellProfiler-plugins/issues/72](https://github.com/CellProfiler/CellProfiler-plugins/issues/72).
 
-As mentioned in the **About** section, the core functionality of this package is based on code 
+As mentioned in the Overview section, the core functionality of this package is based on code 
 by the Cellprofiler team, specifically based on [this publication by Juan Caicendo, Tim Becker, Claire McQuinn et al](https://www.biorxiv.org/content/10.1101/335216v1). They also provided the pre-trained weights for the model.
 I derived the code from the [Cellprofiler Unet plugin](https://github.com/CellProfiler/CellProfiler-plugins/blob/master/classifypixelsunet.py) but the original code for the publication is [here](https://github.com/carpenterlab/unet4nuclei).
 
 The code snippets for determining valid shapes to feed into the unet are taken from Eric Czech's reply to  [this Gitub issue](https://github.com/CellProfiler/CellProfiler-plugins/issues/65).
 
-The sample images in the examples directory are from the EMBO High-Troughput imaging course 2012 (Beate Neumann and Julia Bulkescher).
+The sample images in the examples directory are taken from the test set of the EMBO High-Troughput screening course 2012 (Beate Neumann and Jutta Bulkescher).
 
 ## Contributing
 
